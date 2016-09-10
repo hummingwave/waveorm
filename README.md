@@ -1,2 +1,0 @@
-# waveorm
-ORM for Android
