@@ -3,7 +3,6 @@
 WaveORM is a light & fast ORM for Android that maps objects to SQLite databases.
   - WaveORM consumes minimal memory.
   - WaveORM supports SQLite database updates.
-  - WaveORM supports SQLite database updates.
 
 Steps for installing waveorm to the app
 
