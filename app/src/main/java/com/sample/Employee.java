@@ -25,4 +25,12 @@ public class Employee extends WaveORMRecord {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "empNo='" + empNo + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
