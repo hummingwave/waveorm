@@ -38,12 +38,33 @@ Steps for installing waveorm to the app
 
 or
 
-    If in case there is no application class in the app, add this line
-	    <application
-        android:name="com.hummingwave.Application.WaveORMApplication"
+    If in case there is no application class in the app, add this line in Manifest.xml
+	 <application
+        	android:name="com.hummingwave.Application.WaveORMApplication"
       	. . . >
       	
 	    </application>
+
+or
+
+    If in case your application class in the app, cannot extend to the WaveORMApplication, add the following lines to
+    your application class
+	
+		@Override
+    		public void onCreate() {
+        		super.onCreate();
+			 try {
+        			 WaveORMContext.init(this);
+        		} catch (WaveORMException e) {
+            			e.printStackTrace();
+        		}
+    		}
+    		
+    		@Override
+    		public void onTerminate() {
+        		super.onTerminate();
+        		WaveORMContext.terminate();
+    		}
 
 ###6. Create model class and extend it to WaveORMRecord
 	@Table(name = “YOUR_TABLE_NAME ”)
