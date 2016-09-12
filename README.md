@@ -23,7 +23,7 @@ Steps for installing waveorm to the app
 
 ###3.  Add this lines in Manifest.xml
 	<meta-data android:name="WaveORM_DATABASE" android:value="YOUR_DATABASE_NAME" />
-	<meta-data android:name="WaveORM_VERSION" android:value="YOUR_DATABASE" />
+	<meta-data android:name="WaveORM_VERSION" android:value="YOUR_DATABASE_VERSION_NUMBER" />
 
 ###4.  Make your application class extends WaveORMApplication 
 	public class YOUR_APPLICATION_CLASS_NAME extends WaveORMApplication {
