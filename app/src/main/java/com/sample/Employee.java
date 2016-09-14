@@ -4,7 +4,7 @@ import com.hummingwave.Annotations.PrimaryKey;
 import com.hummingwave.Annotations.Table;
 import com.hummingwave.Util.WaveORMRecord;
 
-@Table(name = "Tables")
+@Table(name = "Employee")
 public class Employee extends WaveORMRecord {
     @PrimaryKey
     public String empNo;

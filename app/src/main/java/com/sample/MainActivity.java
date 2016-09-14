@@ -180,4 +180,9 @@ public class MainActivity extends AppCompatActivity {
         Object object = employee.getCount("empNo = ?", new String[]{"027"});
         Log.e("RESULT", object + "");
     }
+
+    private void executingRawQuery() throws WaveORMException {
+        Employee employee = new Employee();
+        employee.executeRawQuery("Insert into Employee(empNo, name) values('029', 'Rahul')");
+    }
 }

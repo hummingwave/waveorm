@@ -1,4 +1,4 @@
-# WaveORM
+﻿# WaveORM
 
 WaveORM is a light & fast ORM for Android that maps objects to SQLite databases.
   - WaveORM consumes minimal memory.
@@ -9,7 +9,7 @@ Steps for installing waveorm to the app
 ###1. Add this for gradle dependency
 	dependencies {
 		...
-		compile 'com.hummingwave:waveorm:1.0.1'
+		compile 'com.hummingwave:waveorm:1.0.2'
 	}
 	
 ###2. Add this for maven dependency
@@ -125,12 +125,14 @@ Similarly following method can be used for updating record
 same methods can be used to save list, before saving list user has to define WaveORMArrayList as shown below:   
        
        1. update() 
+
            Example :  
                       WaveORMArrayList<Employee> employeeWaveORMArrayList = new WaveORMArrayList<>();
                       ...
                       employeeWaveORMArrayList.update();
                   
        2. update(String whereClause, String[] whereArgs)
+
             Example :  
                       WaveORMArrayList<Employee> employeeWaveORMArrayList = new WaveORMArrayList<>();
                       ...
@@ -144,11 +146,13 @@ same methods can be used to save list, before saving list user has to define Wav
 Similarly following methods can be used for listing record
 
     1. findRecord(String primaryKeyValue)
+
         Example:
                     Employee employee = new Employee();
                     Employee object = (Employee) employee.findRecord("027");
                     
     2. fetchRecords(String selection, String[] selectionArgs, String groupBy, String having, String orderBy, String limit)
+
          Example:
                     Employee employee = new Employee();
                     List object = employee.fetchRecords("empNo = ?", new String[]{"027"}, null, null, null, "1");
@@ -161,17 +165,20 @@ Similarly following methods can be used for listing record
 Similarly following method can be used for deleting record
 
     1. deleteAll()
+
         Example:
                     Employee employee = new Employee();
                     employee.deleteAll();
                     
     2. delete()
+
         Example:
                      WaveORMArrayList<Employee> employeeWaveORMArrayList = new WaveORMArrayList<>();
                      ...
                      employeeWaveORMArrayList.delete();
                     
     3. delete(String whereClause, String[] whereArgs)
+
         Example:
                      WaveORMArrayList<Employee> employeeWaveORMArrayList = new WaveORMArrayList<>();
                      ...
