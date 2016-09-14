@@ -90,7 +90,10 @@ The variables declared in the class, will be considered as column’s name for t
 
 ##Example for CRUD in WaveORM
 
-####Save Record <br /> 
+####Save Record 
+It will save the record to the table, if that record doesn't exists in the table, else it will throw an WaveORMException of Unique 
+key constraint validation failed with the code 2.
+   
     Employee emp = new Employee(); 
     emp.setName("Chaitra");  
     emp.setID("027");  
@@ -98,29 +101,57 @@ The variables declared in the class, will be considered as column’s name for t
   
 or
 
-    save(WaveORMArrayList<T> customDBArrayList)
-
-
-####List Records
-    Employee emp = new Employee();<br /> 
-    List<Employee> empList = emp.listAll();<br /> 
-
-Similarlly following methods can be used for listing record
-
-    findRecord(String primaryKeyValue)
-    fetchRecords(String selection, String[] selectionArgs, String groupBy, String having, String orderBy, String limit)
-
+    WaveORMArrayList<Employee> employeeWaveORMArrayList = new WaveORMArrayList<>();
+    ...
+    employeeWaveORMArrayList.save();
 
 ####Update record
+It will save the record to the table, if that record doesn't exists in the table, else it will update the record in the table.
+    
     Employee emp = new Employee();
     emp.setName("Chaitra T");
     emp.update();
   
-Similarlly following methods can be used for updating record
+Similarly following method can be used for updating record
 
-    update(String whereClause, String[] whereArgs)
-    update(WaveORMArrayList<T> iterator)
-    update(WaveORMArrayList<T> iterator, String whereClause, String[] whereArgs)
+        1. update(String whereClause, String[] whereArgs)
+   
+           Example :  
+               Employee employee = new Employee();
+               employee.setEmpNo("027");
+               employee.setName("Chaitra T");
+               employee.update("empNo = ?", new String[]{"027"});
+           
+same methods can be used to save list, before saving list user has to define WaveORMArrayList as shown below:   
+       
+       1. update() 
+           Example :  
+                      WaveORMArrayList<Employee> employeeWaveORMArrayList = new WaveORMArrayList<>();
+                      ...
+                      employeeWaveORMArrayList.update();
+                  
+       2. update(String whereClause, String[] whereArgs)
+            Example :  
+                      WaveORMArrayList<Employee> employeeWaveORMArrayList = new WaveORMArrayList<>();
+                      ...
+                      employeeWaveORMArrayList.update();
+
+
+####List Records
+    Employee emp = new Employee(); 
+    List<Employee> empList = emp.listAll();
+
+Similarly following methods can be used for listing record
+
+    1. findRecord(String primaryKeyValue)
+        Example:
+                    Employee employee = new Employee();
+                    Employee object = (Employee) employee.findRecord("027");
+                    
+    2. fetchRecords(String selection, String[] selectionArgs, String groupBy, String having, String orderBy, String limit)
+         Example:
+                    Employee employee = new Employee();
+                    List object = employee.fetchRecords("empNo = ?", new String[]{"027"}, null, null, null, "1");
 
 
 ####Delete Record
@@ -129,9 +160,22 @@ Similarlly following methods can be used for updating record
 
 Similarly following method can be used for deleting record
 
-    deleteAll()
-    delete(WaveORMArrayList<T> iterator)
-    delete(WaveORMArrayList<T> iterator, String whereClause, String[] whereArgs)
+    1. deleteAll()
+        Example:
+                    Employee employee = new Employee();
+                    employee.deleteAll();
+                    
+    2. delete()
+        Example:
+                     WaveORMArrayList<Employee> employeeWaveORMArrayList = new WaveORMArrayList<>();
+                     ...
+                     employeeWaveORMArrayList.delete();
+                    
+    3. delete(String whereClause, String[] whereArgs)
+        Example:
+                     WaveORMArrayList<Employee> employeeWaveORMArrayList = new WaveORMArrayList<>();
+                     ...
+                     employeeWaveORMArrayList.delete("empNo = ?", new String[]{"027"});
 
 ####For getting number of records in the table
     Employee emp = new Employee();
