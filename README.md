@@ -16,7 +16,7 @@ Steps for installing waveorm to the app
     <dependency>
     <groupId>com.hummingwave</groupId>
     <artifactId>waveorm</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.3</version>
     <type>pom</type>
     </dependency>
   
