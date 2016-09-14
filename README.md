@@ -9,14 +9,14 @@ Steps for installing waveorm to the app
 ###1. Add this for gradle dependency
 	dependencies {
 		...
-		compile 'com.hummingwave:waveorm:1.0.4'
+		compile 'com.hummingwave:waveorm:1.0.5'
 	}
 	
 ###2. Add this for maven dependency
     <dependency>
     <groupId>com.hummingwave</groupId>
     <artifactId>waveorm</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <type>pom</type>
     </dependency>
   
@@ -68,7 +68,7 @@ or
 
 ###6. Create model class and extend it to WaveORMRecord
 	@Table(name = “YOUR_TABLE_NAME ”)
-	public class YOUR_TABLE_NAME extends WaveORMRecord{
+	public class YOUR_CLASS_NAME extends WaveORMRecord{
 
 	}
 	
@@ -155,8 +155,23 @@ Similarly following methods can be used for listing record
 
          Example:
                     Employee employee = new Employee();
-                    List object = employee.fetchRecords("empNo = ?", new String[]{"027"}, null, null, null, "1");
+                    List object = employee.fetchRecords("empNo = ?", new String[]{"027"}, null, null, null, "1");     
+                                   
+    3. fetchRecordsWithPagination(int paginationOffset)
 
+         Example:
+                    Employee employee = new Employee();
+                    WaveORMPaginationResult waveORMPaginationResult;
+                    int pagination = 0;
+                    
+                    if(waveORMPaginationResult != null){
+                        pagination = waveORMPaginationResult.getPaginationOffset();
+                    }
+                    
+                    waveORMPaginationResult = employee.fetchRecordsWithPagination(pagination);
+                 
+By default fetchRecordsWithPagination will return 50 records, to get result from WaveORMPaginationResult use waveORMPaginationResult.getResultantList() this method, it will return
+list of objects of type <T>.
 
 ####Delete Record
     Employee emp = new Employee();

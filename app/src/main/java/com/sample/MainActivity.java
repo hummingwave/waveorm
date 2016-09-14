@@ -6,10 +6,13 @@ import android.util.Log;
 
 import com.hummingwave.Custom.WaveORMArrayList;
 import com.hummingwave.Custom.WaveORMException;
+import com.hummingwave.Custom.WaveORMPaginationResult;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    WaveORMPaginationResult waveORMPaginationResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
             deleteList();
             deleteListWithWhereClause();*/
             fetch();
+            if (waveORMPaginationResult != null) {
+                fetchRecordsWithPagination(waveORMPaginationResult.getPaginationOffset());
+            }else {
+                fetchRecordsWithPagination(0);
+            }
         } catch (WaveORMException e) {
             Log.d("EXCEPTION_CODE", e.getCode() + "");
             e.printStackTrace();
@@ -184,5 +192,11 @@ public class MainActivity extends AppCompatActivity {
     private void executingRawQuery() throws WaveORMException {
         Employee employee = new Employee();
         employee.executeRawQuery("Insert into Employee(empNo, name) values('029', 'Rahul')");
+    }
+
+    private void fetchRecordsWithPagination(int pagination) throws WaveORMException {
+        Employee employee = new Employee();
+        waveORMPaginationResult = employee.fetchRecordsWithPagination(pagination);
+        Log.e("RESULT", waveORMPaginationResult + "");
     }
 }
