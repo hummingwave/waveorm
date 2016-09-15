@@ -8,6 +8,7 @@ import com.hummingwave.Custom.WaveORMArrayList;
 import com.hummingwave.Custom.WaveORMException;
 import com.hummingwave.Custom.WaveORMPaginationResult;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -59,9 +60,15 @@ public class MainActivity extends AppCompatActivity {
         Employee employee = new Employee();
         employee.setEmpNo("027");
         employee.setName("Chaitra");
-        employee.setBytes("Chaitra".getBytes());
+         {
+            try {
+                employee.setBytes("Chaitra".getBytes("ISO-8859-15"));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
         Log.d("BYTES", "Chaitra".getBytes() + "");
-        employee.save();
+        employee.update();
     }
 
     private void saveList() throws WaveORMException {
@@ -90,7 +97,16 @@ public class MainActivity extends AppCompatActivity {
     private void fetch() throws WaveORMException {
         Employee employee = new Employee();
         List object = employee.fetchRecords(null, null, null, null, null, null);
-        Log.e("RESULT", (Employee)object + "");
+        employee = (Employee)object.get(0);
+         {
+            {
+                try {
+                    Log.e("RESULT",  new String(employee.getBytes(), "ISO-8859-15")+ "");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     private void updateWhereClause() {
