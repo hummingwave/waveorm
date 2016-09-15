@@ -25,27 +25,30 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         try {
             save();
-            saveList();
+           /* saveList();
             update();
-            updateWhereClause();
+            updateWhereClause();*/
             fetch();
-            fetchWithPrimaryKey();
+          /*  fetchWithPrimaryKey();
             fetchWithWhereClause();
             getFirst();
             getLast();
             listAll();
             getCount();
             getCountWithCond();
-            delete();
+            delete();*/
            /* deleteAll();
             deleteList();
             deleteListWithWhereClause();*/
-            fetch();
+          /*  fetch();
             if (waveORMPaginationResult != null) {
                 fetchRecordsWithPagination(waveORMPaginationResult.getPaginationOffset());
             }else {
                 fetchRecordsWithPagination(0);
             }
+            if (waveORMPaginationResult != null) {
+                fetchRecordsWithPagination(waveORMPaginationResult.getPaginationOffset());
+            }*/
         } catch (WaveORMException e) {
             Log.d("EXCEPTION_CODE", e.getCode() + "");
             e.printStackTrace();
@@ -56,14 +59,16 @@ public class MainActivity extends AppCompatActivity {
         Employee employee = new Employee();
         employee.setEmpNo("027");
         employee.setName("Chaitra");
+        employee.setBytes("Chaitra".getBytes());
+        Log.d("BYTES", "Chaitra".getBytes() + "");
         employee.save();
     }
 
     private void saveList() throws WaveORMException {
         WaveORMArrayList<Employee> employeeWaveORMArrayList = new WaveORMArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 200; i++) {
             Employee employee = new Employee();
-            employee.setEmpNo(28 + i + "");
+            employee.setEmpNo(i + "");
             employee.setName("Chaitra " + i);
             employeeWaveORMArrayList.add(employee);
         }
@@ -85,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     private void fetch() throws WaveORMException {
         Employee employee = new Employee();
         List object = employee.fetchRecords(null, null, null, null, null, null);
-        Log.e("RESULT", object + "");
+        Log.e("RESULT", (Employee)object + "");
     }
 
     private void updateWhereClause() {
