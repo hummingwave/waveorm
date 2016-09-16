@@ -98,7 +98,9 @@ public class MainActivity extends AppCompatActivity {
     private void updateWhereClause() {
         try {
             Employee employee = new Employee();
-            employee.update("empNo = ?", new String[]{"027"});
+            employee.setName("Chaitra T");
+            employee.update("empNo = 027", null);
+            Log.e("RESULT", employee + "");
         } catch (WaveORMException e) {
             e.printStackTrace();
         }

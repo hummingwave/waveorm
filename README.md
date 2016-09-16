@@ -9,14 +9,14 @@ Steps for installing waveorm to the app
 ###1. Add this for gradle dependency
 	dependencies {
 		...
-		compile 'com.hummingwave:waveorm:1.0.9'
+		compile 'com.hummingwave:waveorm:1.1.3'
 	}
 	
 ###2. Add this for maven dependency
     <dependency>
     <groupId>com.hummingwave</groupId>
     <artifactId>waveorm</artifactId>
-    <version>1.0.9</version>
+    <version>1.1.3</version>
     <type>pom</type>
     </dependency>
   
@@ -32,7 +32,7 @@ Steps for installing waveorm to the app
 
 ###5. Add your application class to Manifest.xml
 	<application
-   	android:name=".YOUR_APPLICATION_CLASS_NAME "
+	android:name=".YOUR_APPLICATION_CLASS_NAME "
 	. . . >
 	</application>
 
@@ -118,6 +118,7 @@ Similarly following method can be used for updating record
    
            Example :  
                Employee employee = new Employee();
+               employee.setName("Chaitra");
                employee.update("empNo = ?", new String[]{"027"});
            
 same methods can be used to save list, before saving list user has to define WaveORMArrayList as shown below:   
