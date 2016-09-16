@@ -9,14 +9,14 @@ Steps for installing waveorm to the app
 ###1. Add this for gradle dependency
 	dependencies {
 		...
-		compile 'com.hummingwave:waveorm:1.0.8'
+		compile 'com.hummingwave:waveorm:1.0.9'
 	}
 	
 ###2. Add this for maven dependency
     <dependency>
     <groupId>com.hummingwave</groupId>
     <artifactId>waveorm</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
     <type>pom</type>
     </dependency>
   
@@ -118,8 +118,6 @@ Similarly following method can be used for updating record
    
            Example :  
                Employee employee = new Employee();
-               employee.setEmpNo("027");
-               employee.setName("Chaitra T");
                employee.update("empNo = ?", new String[]{"027"});
            
 same methods can be used to save list, before saving list user has to define WaveORMArrayList as shown below:   
@@ -151,13 +149,19 @@ Similarly following methods can be used for listing record
                     Employee employee = new Employee();
                     Employee object = (Employee) employee.findRecord("027");
                     
-    2. fetchRecords(String selection, String[] selectionArgs, String groupBy, String having, String orderBy, String limit)
+    2. findRecord(int primaryKeyValue)
+
+        Example:
+                    Employee employee = new Employee();
+                    Employee object = (Employee) employee.findRecord(027);
+                    
+    3. fetchRecords(String selection, String[] selectionArgs, String groupBy, String having, String orderBy, String limit)
 
          Example:
                     Employee employee = new Employee();
                     List object = employee.fetchRecords("empNo = ?", new String[]{"027"}, null, null, null, "1");     
                                    
-    3. fetchRecordsWithPagination(int paginationOffset)
+    4. fetchRecordsWithPagination(int paginationOffset)
 
          Example:
                     Employee employee = new Employee();

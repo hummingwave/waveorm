@@ -1,6 +1,5 @@
 package com.sample;
 
-import com.hummingwave.Annotations.PrimaryKey;
 import com.hummingwave.Annotations.Table;
 import com.hummingwave.Util.WaveORMRecord;
 
@@ -9,7 +8,6 @@ import java.util.Arrays;
 @Table(name = "Employee")
 public class Employee extends WaveORMRecord {
     public byte[] bytes;
-    @PrimaryKey
     public String empNo;
     public String name;
 

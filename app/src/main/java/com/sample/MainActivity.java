@@ -8,7 +8,6 @@ import com.hummingwave.Custom.WaveORMArrayList;
 import com.hummingwave.Custom.WaveORMException;
 import com.hummingwave.Custom.WaveORMPaginationResult;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,22 +25,22 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         try {
             save();
-           /* saveList();
+            saveList();
+            listAll();
             update();
-            updateWhereClause();*/
+            updateWhereClause();
             fetch();
-          /*  fetchWithPrimaryKey();
+            fetchWithPrimaryKey();
             fetchWithWhereClause();
             getFirst();
             getLast();
-            listAll();
             getCount();
             getCountWithCond();
-            delete();*/
-           /* deleteAll();
+            delete();
+            deleteAll();
             deleteList();
-            deleteListWithWhereClause();*/
-          /*  fetch();
+            deleteListWithWhereClause();
+            fetch();
             if (waveORMPaginationResult != null) {
                 fetchRecordsWithPagination(waveORMPaginationResult.getPaginationOffset());
             }else {
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             }
             if (waveORMPaginationResult != null) {
                 fetchRecordsWithPagination(waveORMPaginationResult.getPaginationOffset());
-            }*/
+            }
         } catch (WaveORMException e) {
             Log.d("EXCEPTION_CODE", e.getCode() + "");
             e.printStackTrace();
@@ -60,13 +59,7 @@ public class MainActivity extends AppCompatActivity {
         Employee employee = new Employee();
         employee.setEmpNo("027");
         employee.setName("Chaitra");
-         {
-            try {
-                employee.setBytes("Chaitra".getBytes("ISO-8859-15"));
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-        }
+        employee.setBytes("Chaitra".getBytes());
         Log.d("BYTES", "Chaitra".getBytes() + "");
         employee.update();
     }
@@ -85,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
     private void fetchWithPrimaryKey() throws WaveORMException {
         Employee employee = new Employee();
         Employee object = (Employee) employee.findRecord("027");
+        //OR
+        //object = (Employee) employee.findRecord(027);
         Log.e("RESULT", object + "");
     }
 
@@ -97,23 +92,12 @@ public class MainActivity extends AppCompatActivity {
     private void fetch() throws WaveORMException {
         Employee employee = new Employee();
         List object = employee.fetchRecords(null, null, null, null, null, null);
-        employee = (Employee)object.get(0);
-         {
-            {
-                try {
-                    Log.e("RESULT",  new String(employee.getBytes(), "ISO-8859-15")+ "");
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        Log.e("RESULT", (Employee)object.get(0) + "");
     }
 
     private void updateWhereClause() {
         try {
             Employee employee = new Employee();
-            employee.setEmpNo("027");
-            employee.setName("Chaitra T");
             employee.update("empNo = ?", new String[]{"027"});
         } catch (WaveORMException e) {
             e.printStackTrace();
