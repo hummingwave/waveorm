@@ -1,6 +1,6 @@
 ﻿# WaveORM
 
-WaveORM is a light & fast ORM for Android that maps objects to SQLite databases.
+WaveORM is a light & fast ORM for Android that maps objects to SQLite database.
   - WaveORM consumes minimal memory.
   - WaveORM supports SQLite database updates.
 
@@ -9,14 +9,14 @@ Steps for installing waveorm to the app
 ###1. Add this for gradle dependency
 	dependencies {
 		...
-		compile 'com.hummingwave:waveorm:1.1.3'
+		compile 'com.hummingwave:waveorm:1.1.4'
 	}
 	
 ###2. Add this for maven dependency
     <dependency>
     <groupId>com.hummingwave</groupId>
     <artifactId>waveorm</artifactId>
-    <version>1.1.3</version>
+    <version>1.1.4</version>
     <type>pom</type>
     </dependency>
   
