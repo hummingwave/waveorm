@@ -9,14 +9,14 @@ Steps for installing waveorm to the app
 ###1. Add this for gradle dependency
 	dependencies {
 		...
-		compile 'com.hummingwave:waveorm:1.1.4'
+		compile 'com.hummingwave:waveorm:1.1.5'
 	}
 	
 ###2. Add this for maven dependency
     <dependency>
     <groupId>com.hummingwave</groupId>
     <artifactId>waveorm</artifactId>
-    <version>1.1.4</version>
+    <version>1.1.5</version>
     <type>pom</type>
     </dependency>
   
