@@ -76,7 +76,7 @@ The variables declared in the class, will be considered as column’s name for t
 
 ###7. To mark variable as primary key use @PrimaryKey annotation
 	@Table(name = “YOUR_TABLE_NAME ”)
-	public class YOUR_TABLE_NAME extends WaveORMRecord{
+	public class YOUR_CLASS_NAME extends WaveORMRecord{
 		@PrimaryKey
 		String name;
 
@@ -107,6 +107,8 @@ or
 
 ####Update record
 It will save the record to the table, if that record doesn't exists in the table, else it will update the record in the table.
+If the record contains primitive data types to retain it's value, before updating the record, fetch the record and then update the record,
+else it will set the value of primitive data types to it's default values.
     
     Employee emp = new Employee();
     emp.setName("Chaitra T");
