@@ -36,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
             getLast();
             getCount();
             getCountWithCond();
-            delete();
+          /*  delete();
             deleteAll();
             deleteList();
-            deleteListWithWhereClause();
+            deleteListWithWhereClause();*/
             fetch();
             if (waveORMPaginationResult != null) {
                 fetchRecordsWithPagination(waveORMPaginationResult.getPaginationOffset());
@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
         employee.setEmpNo("027");
         employee.setName("Chaitra");
         employee.setBytes("Chaitra".getBytes());
-        Log.d("BYTES", "Chaitra".getBytes() + "");
         employee.update();
     }
 

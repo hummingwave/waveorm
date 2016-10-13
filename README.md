@@ -9,14 +9,14 @@ Steps for installing waveorm to the app
 ###1. Add this for gradle dependency
 	dependencies {
 		...
-		compile 'com.hummingwave:waveorm:1.1.5'
+		compile 'com.hummingwave:waveorm:2.0.0'
 	}
 	
 ###2. Add this for maven dependency
     <dependency>
     <groupId>com.hummingwave</groupId>
     <artifactId>waveorm</artifactId>
-    <version>1.1.5</version>
+    <version>2.0.0</version>
     <type>pom</type>
     </dependency>
   
@@ -257,4 +257,5 @@ Example
 |7|Cannot find a Package name, to read database name and database version from Manifest.xml|
 |8|Multiple Primary keys cannot be added to the same table|
 |9|Where condition for deleting a record is null, set values for the object to delete the record|
+|10|Not able to find the package "YOUR_PACKAGE_NAME", may be because of app package is different from app gradle applicationID.|
 
