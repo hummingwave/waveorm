@@ -6,13 +6,13 @@ WaveORM is a light & fast ORM for Android that maps objects to SQLite database.
 
 Steps for installing waveorm to the app
 
-###1. Add this for gradle dependency
+1. Add this for gradle dependency
 	dependencies {
 		...
-		compile 'com.hummingwave:waveorm:2.0.6'
+		compile 'com.hummingwave:waveorm:3.0.0'
 	}
 	
-###2. Add this for maven dependency
+2. Add this for maven dependency
     <dependency>
     <groupId>com.hummingwave</groupId>
     <artifactId>waveorm</artifactId>
@@ -21,16 +21,16 @@ Steps for installing waveorm to the app
     </dependency>
   
 
-###3.  Add this lines in Manifest.xml
+3.  Add this lines in Manifest.xml
 	<meta-data android:name="WaveORM_DATABASE" android:value="YOUR_DATABASE_NAME" />
 	<meta-data android:name="WaveORM_VERSION" android:value="YOUR_DATABASE_VERSION_NUMBER" />
 
-###4.  Make your application class extends WaveORMApplication 
+4.  Make your application class extends WaveORMApplication 
 	public class YOUR_APPLICATION_CLASS_NAME extends WaveORMApplication {
 
 	}
 
-###5. Add your application class to Manifest.xml
+5. Add your application class to Manifest.xml
 	<application
 	android:name=".YOUR_APPLICATION_CLASS_NAME "
 	. . . >
@@ -66,7 +66,7 @@ or
         		WaveORMContext.terminate();
     		}
 
-###6. Create model class and extend it to WaveORMRecord
+6. Create model class and extend it to WaveORMRecord
 	@Table(name = “YOUR_TABLE_NAME ”)
 	public class YOUR_CLASS_NAME extends WaveORMRecord{
 
@@ -74,7 +74,7 @@ or
 	
 The variables declared in the class, will be considered as column’s name for the table except for those, which is annotated with @Ignore annotation.
 
-###7. To mark variable as primary key use @PrimaryKey annotation
+7. To mark variable as primary key use @PrimaryKey annotation
 	@Table(name = “YOUR_TABLE_NAME ”)
 	public class YOUR_CLASS_NAME extends WaveORMRecord{
 		@PrimaryKey
@@ -85,12 +85,12 @@ The variables declared in the class, will be considered as column’s name for t
 		int phoneNumber;
 	}
 
-###8. Generate setters and getters
+8. Generate setters and getters
 
 
-##Example for CRUD in WaveORM
+#Example for CRUD in WaveORM
 
-####Save Record 
+#Save Record 
 It will save the record to the table, if that record doesn't exists in the table, else it will throw an WaveORMException of Unique 
 key constraint validation failed with the code 2.
    
