@@ -1,4 +1,4 @@
-﻿﻿# WaveORM
+# WaveORM
 
 WaveORM is a light & fast ORM for Android that maps objects to SQLite database.
   - WaveORM consumes minimal memory.
@@ -6,13 +6,13 @@ WaveORM is a light & fast ORM for Android that maps objects to SQLite database.
 
 Steps for installing waveorm to the app
 
-###1. Add this for gradle dependency
+### 1. Add this for gradle dependency
 	dependencies {
 		...
 		compile 'com.hummingwave:waveorm:3.0.2'
 	}
 	
-###2. Add this for maven dependency
+### 2. Add this for maven dependency
     <dependency>
     <groupId>com.hummingwave</groupId>
     <artifactId>waveorm</artifactId>
@@ -21,27 +21,27 @@ Steps for installing waveorm to the app
     </dependency>
   
 
-###3.  Add this lines in Manifest.xml
+### 3.  Add this lines in Manifest.xml
 	<meta-data android:name="WaveORM_DATABASE" android:value="YOUR_DATABASE_NAME" />
 	<meta-data android:name="WaveORM_VERSION" android:value="YOUR_DATABASE_VERSION_NUMBER" />
 	
     
- -
+ 
  If In case any module is added in the project and to perform SQLite CRUD at module level add this
 	
 	<meta-data android:name="WaveORM_MODULE_PACKAGE_NAME" android:value="YOUR_MODULE_PACKAGE_NAME" />
  
--
+
  If In case flavour is added in the project and to perform SQLite CRUD at flaovur level add this, "YOUR_MAIN_APPLICATION_PACKAGE_NAME" is pacakge name given in manifest file 
 	
 	<meta-data android:name="WaveORM_APPLICATION_PACKAGE_NAME" android:value="YOUR_MAIN_APPLICATION_PACKAGE_NAME" />
 
-###4.  Make your application class extends WaveORMApplication 
+### 4.  Make your application class extends WaveORMApplication 
 	public class YOUR_APPLICATION_CLASS_NAME extends WaveORMApplication {
 
 	}
 
-###5. Add your application class to Manifest.xml
+### 5. Add your application class to Manifest.xml
 	<application
 	android:name=".YOUR_APPLICATION_CLASS_NAME "
 	. . . >
@@ -77,7 +77,7 @@ or
         		WaveORMContext.terminate();
     		}
 
-###6. Create model class and extend it to WaveORMRecord
+### 6. Create model class and extend it to WaveORMRecord
 	@Table(name = “YOUR_TABLE_NAME ”)
 	public class YOUR_CLASS_NAME extends WaveORMRecord{
 
@@ -85,7 +85,7 @@ or
 	
 The variables declared in the class, will be considered as column’s name for the table except for those, which is annotated with @Ignore annotation.
 
-###7. To mark variable as primary key use @PrimaryKey annotation
+### 7. To mark variable as primary key use @PrimaryKey annotation
 	@Table(name = “YOUR_TABLE_NAME ”)
 	public class YOUR_CLASS_NAME extends WaveORMRecord{
 		@PrimaryKey
@@ -96,12 +96,12 @@ The variables declared in the class, will be considered as column’s name for t
 		int phoneNumber;
 	}
 
-###8. Generate setters and getters
+### 8. Generate setters and getters
 
 
-##Example for CRUD in WaveORM
+## Example for CRUD in WaveORM
 
-####Save Record 
+#### Save Record 
 It will save the record to the table, if that record doesn't exists in the table, else it will throw an WaveORMException of Unique 
 key constraint validation failed with the code 2.
    
@@ -116,7 +116,7 @@ or
     ...
     employeeWaveORMArrayList.save();
 
-####Update record
+#### Update record
 It will save the record to the table, if that record doesn't exists in the table, else it will update the record in the table.
 If the record contains primitive data types to retain it's value, before updating the record, fetch the record and then update the record,
 else it will set the value of primitive data types to it's default values.
@@ -151,7 +151,7 @@ same methods can be used to save list, before saving list user has to define Wav
                       employeeWaveORMArrayList.update();
 
 
-####List Records
+#### List Records
     Employee emp = new Employee(); 
     List<Employee> empList = emp.listAll();
 
@@ -191,7 +191,7 @@ Similarly following methods can be used for listing record
 By default fetchRecordsWithPagination will return 50 records, to get result from WaveORMPaginationResult use waveORMPaginationResult.getResultantList() this method, it will return
 list of objects of type <T>.
 
-####Delete Record
+#### Delete Record
     Employee emp = new Employee();
     emp.delete();
 
@@ -217,7 +217,7 @@ Similarly following method can be used for deleting record
                      ...
                      employeeWaveORMArrayList.delete("empNo = ?", new String[]{"027"});
 
-####For getting number of records in the table
+#### For getting number of records in the table
     Employee emp = new Employee();
     emp.getCount();
 
@@ -231,7 +231,7 @@ Similarly this method can be used for getting count of records in table
     2. Create file with the name same as YOUR_DATABASE_VERSION with extension .sql (Example: 2.sql)
 
 
-##Exceptions in WaveORM
+## Exceptions in WaveORM
 
 WaveORM will throw WaveORMException, which needs to be handled by the user. Exceptions thrown by WaveORM are listed below, 
 and user can handle these exceptions by using getCode() method.
