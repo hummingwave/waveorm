@@ -9,14 +9,14 @@ Steps for installing waveorm to the app
 ###1. Add this for gradle dependency
 	dependencies {
 		...
-		compile 'com.hummingwave:waveorm:2.0.6'
+		compile 'com.hummingwave:waveorm:3.0.2'
 	}
 	
 ###2. Add this for maven dependency
     <dependency>
     <groupId>com.hummingwave</groupId>
     <artifactId>waveorm</artifactId>
-    <version>2.0.0</version>
+    <version>3.0.2</version>
     <type>pom</type>
     </dependency>
   
@@ -24,6 +24,17 @@ Steps for installing waveorm to the app
 ###3.  Add this lines in Manifest.xml
 	<meta-data android:name="WaveORM_DATABASE" android:value="YOUR_DATABASE_NAME" />
 	<meta-data android:name="WaveORM_VERSION" android:value="YOUR_DATABASE_VERSION_NUMBER" />
+	
+    
+ -
+ If In case any module is added in the project and to perform SQLite CRUD at module level add this
+	
+	<meta-data android:name="WaveORM_MODULE_PACKAGE_NAME" android:value="YOUR_MODULE_PACKAGE_NAME" />
+ 
+-
+ If In case flavour is added in the project and to perform SQLite CRUD at flaovur level add this, "YOUR_MAIN_APPLICATION_PACKAGE_NAME" is pacakge name given in manifest file 
+	
+	<meta-data android:name="WaveORM_APPLICATION_PACKAGE_NAME" android:value="YOUR_MAIN_APPLICATION_PACKAGE_NAME" />
 
 ###4.  Make your application class extends WaveORMApplication 
 	public class YOUR_APPLICATION_CLASS_NAME extends WaveORMApplication {
