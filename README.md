@@ -9,7 +9,7 @@ Steps for installing waveorm to the app
 ### 1. Add this for gradle dependency
 	dependencies {
 		...
-		compile 'com.hummingwave:waveorm:3.1.3'
+		compile 'com.hummingwave:waveorm:3.1.4'
 	}
 	
 ### 2. Add this for maven dependency
@@ -230,6 +230,10 @@ Similarly this method can be used for getting count of records in table
 #### Alter table
     1. Create folder named waveORM_upgrade in the assets folder.
     2. Create file with the name same as YOUR_DATABASE_VERSION with extension .sql (Example: 2.sql)
+    3. If in case anything have to be inserted into the table, insert script can be written into the same table
+     Example:
+     		ALTER TABLE Employee ADD eMail VARCHAR
+		INSERT INTO Employee(empNo, name, phNo, eMail) VALUES ('123', 'Emp_1', 0123456789, "abc@abc.com");
 
 #### Insert into table
     1. Create folder named insertScript in the assets folder.
