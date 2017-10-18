@@ -9,7 +9,7 @@ Steps for installing waveorm to the app
 ### 1. Add this for gradle dependency
 	dependencies {
 		...
-		compile 'com.hummingwave:waveorm:3.0.8'
+		compile 'com.hummingwave:waveorm:3.1.3'
 	}
 	
 ### 2. Add this for maven dependency
@@ -231,6 +231,13 @@ Similarly this method can be used for getting count of records in table
     1. Create folder named waveORM_upgrade in the assets folder.
     2. Create file with the name same as YOUR_DATABASE_VERSION with extension .sql (Example: 2.sql)
 
+#### Insert into table
+    1. Create folder named insertScript in the assets folder.
+    2. Create file with extension .sql (Example: TABLE_NAME.sql) 
+    3. Write insert scripts inside the file
+       Example:
+		INSERT INTO Employee(empNo,name,phNo) VALUES ('123', 'Emp_1', 0123456789);
+
 
 ## Exceptions in WaveORM
 
@@ -270,4 +277,3 @@ Example
 |8|Multiple Primary keys cannot be added to the same table|
 |9|Where condition for deleting a record is null, set values for the object to delete the record|
 |10|Not able to find the package "YOUR_PACKAGE_NAME", may be because of app package is different from app gradle applicationID.|
-
