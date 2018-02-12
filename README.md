@@ -9,14 +9,14 @@ Steps for installing waveorm to the app
 ### 1. Add this for gradle dependency
 	dependencies {
 		...
-		compile 'com.hummingwave:waveorm:3.2.7'
+		compile 'com.hummingwave:waveorm:3.3.0'
 	}
 	
 ### 2. Add this for maven dependency
     <dependency>
     <groupId>com.hummingwave</groupId>
     <artifactId>waveorm</artifactId>
-    <version>3.2.7</version>
+    <version>3.3.0</version>
     <type>pom</type>
     </dependency>
   
@@ -245,7 +245,11 @@ Similarly this method can be used for getting count of records in table
 					OR
 
     1. Create folder named insertScript in the assets folder.
-    2. Put zip file (Example: TABLE_NAME.zip) inside the folder which contains .sql files
+    2. Put zip file (Example: DATA_BASE_VERSION.zip) inside the folder which contains .sql files (Example: ANY_NAME.sql)
+    					
+					OR
+					
+    3. Put .sql file with DATA_BASE_VERSION.sql inside the folder
 
 
 ## Exceptions in WaveORM
